@@ -1,0 +1,49 @@
+ <p-dialog header="Add new Permission" styleClass="my-panel" [(visible)]="displayModal"
+    [modal]="true" [style]="{width: '35vw', top: '100px'}" [baseZIndex]="10000"
+    (onHide)="hideModal()"
+    [draggable]="false" [resizable]="false">
+      <form [formGroup]="permissionForm" (ngSubmit)="onSubmit()" class="form-horizontal" novalidate>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 form-group ">
+                  <label for="enabled" class="control-label">Enabled</label>
+                    <input class="form-control"  [ngClass] = "{'is-invalid': permissionForm.get('enabled').errors && (permissionForm.get('enabled').touched || permissionForm.get('enabled').dirty) }" formControlName="enabled" id="enabled" type="text" pInputText />
+                    <span *ngIf="permissionForm.get('enabled').errors && 
+                      (permissionForm.get('enabled').touched || permissionForm.get('enabled').dirty)" class="text-danger">
+                        <span *ngIf="permissionForm.get('enabled').errors.required">
+                            Enabled field is required
+                        </span>
+                        <span *ngIf="permissionForm.get('enabled').errors.minlength || permissionForm.get('enabled').errors.maxlength">
+                            Enabled field must be greater than 2 characters and less than 10 characters
+                        </span>
+                    </span>
+                </div>
+                <div class="col-md-12 form-group">
+                    <label for="permissionGroup" class="control-label"> Permission Group </label>
+                    <input class="form-control"  [ngClass] = "{'is-invalid': permissionForm.get('permissionGroup').errors && (permissionForm.get('permissionGroup').touched || permissionForm.get('permissionGroup').dirty) }" formControlName="permissionGroup" type="text" id="permissionGroup" pInputText />
+                    <span *ngIf="permissionForm.get('permissionGroup').errors && 
+                  (permissionForm.get('permissionGroup').touched || permissionForm.get('permissionGroup').dirty)">
+                        <span *ngIf="permissionForm.get('permissionGroup').errors.required" class="text-danger">
+                            Enabled field is required
+                        </span>
+                    </span>
+                </div>
+                <div class="col-md-12 form-group">
+                    <label for="permissionName" class="control-label"> Permission Name </label>
+                    <input class="form-control"  [ngClass] = "{'is-invalid': permissionForm.get('permissionName').errors && (permissionForm.get('permissionName').touched || permissionForm.get('permissionName').dirty) }" formControlName="permissionName" type="text" id="permissionName" pInputText />
+                    <span *ngIf="permissionForm.get('permissionName').errors && 
+                  (permissionForm.get('permissionName').touched || permissionForm.get('permissionName').dirty)">
+                        <span *ngIf="permissionForm.get('permissionName').errors.required" class="text-danger">
+                            Enabled field is required
+                        </span>
+                    </span>
+                </div>
+              </div>
+          </div>
+        <p-footer>
+          <div class="col-md-12 form-group">
+            <button type="submit" pButton icon="pi pi-check" label="Save" ></button>
+          </div>
+        </p-footer>
+      </form>
+</p-dialog>

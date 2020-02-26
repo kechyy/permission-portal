@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2>Users Permission <b>Details</b></h2>
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" (click)="showDialog()" label="Show" class="btn btn-info add-new"><i
+                            class="fa fa-plus"></i> Add New Permission</button>
+                </div>
+
+            </div>
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead class="bg-info text-white">
+                <tr>
+                    <th>Enabled</th>
+                    <th>Permission Code</th>
+                    <th>Permission Grouping</th>
+                    <th>Permission Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let permission of permissions">
+                    <td>{{permission.enabled}}</td>
+                    <td>{{permission.permissionCode}}</td>
+                    <td>{{permission.permissionGrouping}}</td>
+                    <td>{{permission.permissionName}}</td>
+                    <td>
+                        <a class="edit" title="Edit" (click)="showDialog(permission)" label="Show"><i
+                                class="fa fa-pencil"></i></a>
+                        <a class="delete" title="Delete" (click)="confirm(permission.permissionCode)"><i
+                                class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-sm-2 ml-auto mr-0">
+                <a (click)="logout()" class="btn btn-sm btn-light pull-right"><i class="fa fa-logout  "></i> Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<app-permissions [(displayModal)]="display" [permission]="selectedPermission"
+    (permissionCreated)="appendPermission($event)" ></app-permissions>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle">
+
+</p-confirmDialog>

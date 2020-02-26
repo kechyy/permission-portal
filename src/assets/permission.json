@@ -1,0 +1,38 @@
+[
+    {
+        "permissionCode": 33,
+        "permissionGrouping": "CREATION_GROUP",
+        "permissionName": "EDIT_ADMIN",
+        "enabled": false
+    },
+    {
+        "permissionCode": 48,
+        "permissionGrouping": "TEST_GROUPING",
+        "permissionName": "EDIT_USER",
+        "enabled": false
+    },
+    {
+        "permissionCode": 49,
+        "permissionGrouping": "TEST_GROUPING",
+        "permissionName": "EDIT_USEREDITED",
+        "enabled": false
+    },
+    {
+        "permissionCode": 42,
+        "permissionGrouping": "TEST_GROUPING",
+        "permissionName": "EDIT_USER",
+        "enabled": false
+    },
+    {
+        "permissionCode": 61,
+        "permissionGrouping": "TEST_GROUPING",
+        "permissionName": "EDIT_USEREDITED",
+        "enabled": false
+    },
+    {
+        "permissionCode": 44,
+        "permissionGrouping": "CREATION_GROUP",
+        "permissionName": "EDIT_ADMIN",
+        "enabled": true
+    }
+]

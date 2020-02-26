@@ -1,0 +1,62 @@
+
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col-sm-4 m-auto border border-round">
+            <h3 class="text-center"><strong>LOGIN</strong></h3> 
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-gear"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Grant type" [ngClass] = "{'is-invalid': loginForm.get('grant_type').errors && (loginForm.get('grant_type').touched || loginForm.get('grant_type').dirty) }" formControlName="grant_type" id="grant_type" > 
+                    <div *ngIf="loginForm.get('grant_type').errors && 
+                      (loginForm.get('grant_type').touched || loginForm.get('grant_type').dirty)" class="text-danger col-sm-12 pl-0">
+                        <span *ngIf="loginForm.get('grant_type').errors.required">
+                            Grant type field is required
+                        </span>
+                        <span *ngIf="loginForm.get('grant_type').errors.minlength || loginForm.get('grant_type').errors.maxlength">
+                            Grant type field must be greater than 2 characters and less than 10 characters
+                        </span>
+                    </div>
+                </div>   
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control bg-light" placeholder="Username" [ngClass] = "{'is-invalid': loginForm.get('username').errors && (loginForm.get('username').touched || loginForm.get('username').dirty) }" formControlName="username" id="username" >
+                    <div *ngIf="loginForm.get('username').errors && 
+                        (loginForm.get('username').touched || loginForm.get('username').dirty)" class="text-danger col-sm-12 pl-0">
+                        <span *ngIf="loginForm.get('username').errors.required" >
+                            Username field is required
+                        </span>
+                        <span *ngIf="loginForm.get('username').errors.minlength || loginForm.get('username').errors.maxlength">
+                            Username field must be greater than 2 characters and less than 10 characters
+                        </span>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                    </div>
+                    <input type="password" class="form-control bg-light" placeholder="Password" [ngClass] = "{'is-invalid': loginForm.get('password').errors && (loginForm.get('password').touched || loginForm.get('password').dirty) }" formControlName="password" id="password" >
+                    <div *ngIf="loginForm.get('password').errors && 
+                    (loginForm.get('password').touched || loginForm.get('password').dirty)" class="text-danger pl-0 col-sm-12">
+                      <span *ngIf="loginForm.get('password').errors.required">
+                          Password field is required
+                      </span>
+                      <span *ngIf="loginForm.get('password').errors.minlength || loginForm.get('password').errors.maxlength">
+                          Password field must be greater than 2 characters and less than 10 characters
+                      </span>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                </div><br>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-lg form-control" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
